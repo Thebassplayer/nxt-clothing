@@ -17,8 +17,8 @@ export function withMatcher(actionCreator: Function) {
   const type = actionCreator().type;
   return Object.assign(actionCreator, {
     type,
-    match: (action: AnyAction) => {
-      action.type === type;
+    match(action: AnyAction) {
+      return action.type === type;
     },
   });
 }
