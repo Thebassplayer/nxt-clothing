@@ -9,10 +9,10 @@ type CartItemProps = {
 };
 
 const CartItem: FC<CartItemProps> = ({ cartItem }) => {
-  const { name, imgUrl, price, quantity } = cartItem;
+  const { name, imageUrl, price, quantity } = cartItem;
   return (
     <CartItemContainer>
-      <img src={imgUrl} alt={`${name}`} />
+      <img src={imageUrl} alt={`${name}`} />
       <ItemDetails>
         <span>{name}</span>
         <span>

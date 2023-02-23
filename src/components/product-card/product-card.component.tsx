@@ -21,7 +21,7 @@ type ProductCardProps = {
 };
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const { name, price, imgUrl } = product;
+  const { name, price, imageUrl } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
@@ -29,7 +29,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
   return (
     <ProductCartContainer>
-      <img src={imgUrl} alt={`${name}`} />
+      <img src={imageUrl} alt={`${name}`} />
       <Footer>
         <Name>{name}</Name>
         <Price>{price}</Price>
