@@ -1,11 +1,15 @@
-import { useSelector, useDispatch } from 'react-redux';
+import React, { FC } from "react";
 
-import { selectCartItems } from '../../store/cart/cart.selector';
+import { useSelector, useDispatch } from "react-redux";
+
+import { CartItem } from "../../store/cart/cart.types";
+
+import { selectCartItems } from "../../store/cart/cart.selector";
 import {
   addItemToCart,
   clearItemFromCart,
   removeItemFromCart,
-} from '../../store/cart/cart.action';
+} from "../../store/cart/cart.action";
 
 import {
   CheckoutItemContainer,
@@ -15,10 +19,14 @@ import {
   Arrow,
   Value,
   RemoveButton,
-} from './checkout-item.styles';
+} from "./checkout-item.styles";
 
-const CheckoutItem = ({ cartItem }) => {
-  const { name, imageUrl, price, quantity } = cartItem;
+type CheckoutItemProps = {
+  cartItem: CartItem;
+};
+
+const CheckoutItem: FC<CheckoutItemProps> = ({ cartItem }) => {
+  const { name, imgUrl, price, quantity } = cartItem;
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
@@ -31,7 +39,7 @@ const CheckoutItem = ({ cartItem }) => {
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} alt={`${name}`} />
+        <img src={imgUrl} alt={`${name}`} />
       </ImageContainer>
       <BaseSpan> {name} </BaseSpan>
       <Quantity>
